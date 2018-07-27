@@ -34,7 +34,7 @@
   var correctCounter = 0;
 
   //Tracks incorrect selections
-  var inCorrectCounter = 0;
+  var inCorrectCounter = 5;
 
   //Quiz div object
   var quiz = $('#trivia');
@@ -81,7 +81,7 @@
     correctCounter = 0;
 
     //Tracks incorrect selections
-    inCorrectCounter = 0;
+    inCorrectCounter = 5;
 
     //Quiz div object
     quiz = $('#trivia');
@@ -221,14 +221,30 @@
   // Reads the user selection and checks if a correct answer was choosen 
   function choose() {
     var userChoice = $(this).val();
+    var userChoiceGroup = this.name;
 
+    // disbale choices after selection is made
+    if (userChoiceGroup == 'choice0') {
+      $("input[name=choice0]").attr('disabled', true);
+    } else if (userChoiceGroup == "choice1") {
+      $("input[name=choice1]").attr('disabled', true);
+    } else if (userChoiceGroup == 'choice2') {
+      $("input[name=choice2]").attr('disabled', true);
+    } else if (userChoiceGroup == 'choice3') {
+      $("input[name=choice3]").attr('disabled', true);
+    } else if (userChoiceGroup == 'choice4') {
+      $("input[name=choice4]").attr('disabled', true);
+    } else if (userChoiceGroup == 'choice5') {
+      $("input[name=choice5]").attr('disabled', true);
+    }
+
+    // Increment correct counter and decrement incorrect counter if user guesses correctly
     if (userChoice == 1) {
       correctCounter++;
-    } else if (userChoice == 0 && correctCounter > 0) {
-      correctCounter--;
-    }
-  }
+      inCorrectCounter--;
+    } 
 
+  }
 
   // Displays next requested element
   function loadQuestions() {
@@ -246,9 +262,6 @@
 
     });
   }
-
-
-  // Computes score and returns a paragraph element to be displayed
 
 
 })();
