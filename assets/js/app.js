@@ -24,7 +24,7 @@
 
   // Create global variables
   //  Interval Demonstration
-  var number = 10;
+  var number = 120;
   var intervalId;
 
   //Tracks question number
@@ -71,7 +71,7 @@
     e.preventDefault();
 
     //  Interval Demonstration
-    number = 10;
+    number = 120;
     intervalId;
 
     //Tracks question number
